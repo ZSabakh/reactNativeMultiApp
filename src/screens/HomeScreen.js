@@ -22,6 +22,14 @@ const HomeScreen = ({ navigation }) => {
       >
         <Text>List</Text>
       </TouchableOpacity>
+      <TouchableOpacity
+        style={styles.button1}
+        onPress={() => {
+          navigation.navigate("Legends");
+        }}
+      >
+        <Text>Legends</Text>
+      </TouchableOpacity>
     </View>
   );
 };
@@ -38,7 +46,16 @@ const styles = StyleSheet.create({
     marginTop: 5,
     marginBottom: 5,
     padding: 10,
-    backgroundColor: "pink",
+    backgroundColor: "gold",
+    alignSelf: "center",
+    width: "95%",
+  },
+  button1: {
+    alignItems: "center",
+    alignSelf: "center",
+    backgroundColor: "green",
+    padding: 10,
+    width: "95%",
   },
 });
 
