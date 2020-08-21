@@ -2,7 +2,7 @@ import React from "react";
 import { View, Text, StyleSheet, FlatList } from "react-native";
 
 const ListScreen = () => {
-  const peoples = [
+  const people = [
     { name: "Bondo", age: "32" },
     { name: "Ciala", age: "32" },
     { name: "Bejani", age: "32" },
@@ -19,7 +19,7 @@ const ListScreen = () => {
       //   horizontal={true}
       //   showsHorizontalScrollIndicator={false}
       keyExtractor={(person) => person.name}
-      data={peoples}
+      data={people}
       renderItem={({ item }) => {
         return (
           <Text style={styles.text}>
