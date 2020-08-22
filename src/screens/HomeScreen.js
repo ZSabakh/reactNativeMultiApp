@@ -30,6 +30,22 @@ const HomeScreen = ({ navigation }) => {
       >
         <Text>Legends</Text>
       </TouchableOpacity>
+      <TouchableOpacity
+        style={styles.button}
+        onPress={() => {
+          navigation.navigate("Counter");
+        }}
+      >
+        <Text>Counter</Text>
+      </TouchableOpacity>
+      <TouchableOpacity
+        style={styles.button1}
+        onPress={() => {
+          navigation.navigate("Color");
+        }}
+      >
+        <Text>Colors</Text>
+      </TouchableOpacity>
     </View>
   );
 };
