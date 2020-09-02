@@ -1,8 +1,24 @@
 import React from "react";
-import { Text, StyleSheet, View, Button, TouchableOpacity } from "react-native";
+import {
+  Text,
+  StyleSheet,
+  View,
+  Button,
+  TouchableOpacity,
+  FlatList,
+} from "react-native";
 
 const HomeScreen = ({ navigation }) => {
   //Same as props but this one goes to props.navigation straight ahead
+  const menuItems = [
+    { title: "List", page: "List" },
+    { title: "Legends", page: "Legends" },
+    { title: "Counter", page: "Counter" },
+    { title: "Colors", page: "Color" },
+    { title: "One Color/RGB Generator", page: "ColorOne" },
+    { title: "Sum Text", page: "Input" },
+    { title: "Box styling test", page: "Box" },
+  ];
 
   return (
     <View>
@@ -14,46 +30,25 @@ const HomeScreen = ({ navigation }) => {
         title="Components"
       />
       {/* Both do the same job but the latter is more customizable */}
-      <TouchableOpacity
-        style={styles.button}
-        onPress={() => {
-          navigation.navigate("List");
+      <FlatList
+        data={menuItems}
+        keyExtractor={(items) => items.title}
+        renderItem={({ item, index }) => {
+          return (
+            <View>
+              <TouchableOpacity
+                style={styles.button}
+                style={index % 2 == 0 ? styles.button : styles.button1}
+                onPress={() => {
+                  navigation.navigate(item.page);
+                }}
+              >
+                <Text>{item.title}</Text>
+              </TouchableOpacity>
+            </View>
+          );
         }}
-      >
-        <Text>List</Text>
-      </TouchableOpacity>
-      <TouchableOpacity
-        style={styles.button1}
-        onPress={() => {
-          navigation.navigate("Legends");
-        }}
-      >
-        <Text>Legends</Text>
-      </TouchableOpacity>
-      <TouchableOpacity
-        style={styles.button}
-        onPress={() => {
-          navigation.navigate("Counter");
-        }}
-      >
-        <Text>Counter</Text>
-      </TouchableOpacity>
-      <TouchableOpacity
-        style={styles.button1}
-        onPress={() => {
-          navigation.navigate("Color");
-        }}
-      >
-        <Text>Colors</Text>
-      </TouchableOpacity>
-      <TouchableOpacity
-        style={styles.button}
-        onPress={() => {
-          navigation.navigate("ColorOne");
-        }}
-      >
-        <Text>One Color</Text>
-      </TouchableOpacity>
+      />
     </View>
   );
 };
